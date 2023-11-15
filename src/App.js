@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Home from '../src/Home'
+import Error from './Error'
+import {Routes,Route} from"react-router-dom"
+import SiingleMovie from './SiingleMovie'
+import "../src/App.css"
 
-function App() {
+
+// Be sure to include styles at some point, probably during your bootstraping
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+      <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='movie/:id' element={<SiingleMovie/>} />
+      <Route path='*' element={<Error/>} />
+
+      </Routes>
+    
+    
+  )
 }
 
-export default App;
+export default App
